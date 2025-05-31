@@ -36,7 +36,7 @@ required_providers {
   }
 
   random = {
-    source = "hashicorp/local"
+    source = "hashicorp/random"
     version = "~> 3.7.0"
   }
 
