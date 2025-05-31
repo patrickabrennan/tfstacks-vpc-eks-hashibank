@@ -35,6 +35,12 @@ required_providers {
     version = "~> 2.4"
   }
 
+  random = {
+    source = "hashicorp/local"
+    version = "~> 3.7.0"
+  }
+
+
 }
 
 provider "aws" "configurations" {
@@ -87,3 +93,4 @@ provider "kubernetes" "this" {}
 provider "time" "this" {}
 provider "tls" "this" {}
 provider "local" "this" {}
+provider "random" "this" {}
