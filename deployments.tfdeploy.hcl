@@ -3,7 +3,6 @@ identity_token "aws" {
 }
 
 
-
 identity_token "k8s" {
   audience = ["aws.workload.identity"]
 }
@@ -22,7 +21,7 @@ deployment "development" {
     cluster_name = "eksdevbrennan01"
     
     #EKS OIDC
-    tfc_kubernetes_audience = "k8s.workload.identity"
+    tfc_kubernetes_audience = "aws.workload.identity"
     tfc_hostname = "https://app.terraform.io"
     tfc_organization_name = "patrick-brennan-demo-org"
     eks_clusteradmin_arn = "arn:aws:iam::285942769742:role/aws_patrick.brennan_test-developer"
@@ -48,7 +47,7 @@ deployment "prod" {
     cluster_name = "eksbrennanprod01"
     
     #EKS OIDC
-    tfc_kubernetes_audience = "k8s.workload.identity"
+    tfc_kubernetes_audience = "aws.workload.identity"
     tfc_hostname = "https://app.terraform.io"
     tfc_organization_name = "patrick-brennan-demo-org"
     eks_clusteradmin_arn = "arn:aws:iam::285942769742:role/aws_patrick.brennan_test-developer"
