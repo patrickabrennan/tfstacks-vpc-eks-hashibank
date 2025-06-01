@@ -18,7 +18,7 @@ deployment "development" {
 
     #EKS Cluster
     kubernetes_version = "1.30"
-    cluster_name = "eksdevbrennan01"
+    cluster_name = "eks-brennan-dev01"
     
     #EKS OIDC
     tfc_kubernetes_audience = "aws.workload.identity"
@@ -37,14 +37,14 @@ deployment "development" {
 deployment "prod" {
   inputs = {
     aws_identity_token = identity_token.aws.jwt
-    role_arn            = "arn:aws:iam::855831148133:role/tfstacks-role"
+    role_arn            = "arn:aws:iam::285942769742:role/hcp-oidc"
     regions             = ["us-east-2"]
     vpc_name = "vpc-brennan-prod1"
     vpc_cidr = "10.20.0.0/16"
 
     #EKS Cluster
     kubernetes_version = "1.30"
-    cluster_name = "eksbrennanprod01"
+    cluster_name = "eks-brennan-prod01"
     
     #EKS OIDC
     tfc_kubernetes_audience = "aws.workload.identity"
