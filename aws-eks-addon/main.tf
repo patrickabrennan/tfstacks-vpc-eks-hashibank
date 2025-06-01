@@ -29,6 +29,7 @@ module "eks_blueprints_addons" {
         # components (kubelet, kube-proxy, and containerd). Fargate rounds up to the following
         # compute configuration that most closely matches the sum of vCPU and memory requests in
         # order to ensure pods always have the resources that they need to run.
+        replicaCount = 4
         resources = {
           limits = {
             cpu = "0.25"
