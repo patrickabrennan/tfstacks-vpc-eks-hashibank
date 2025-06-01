@@ -20,7 +20,7 @@ module "eks_blueprints_addons" {
   # EKS Add-ons
   eks_addons = {
     coredns = {
-      addon_version = "v1.11.1-eksbuild.9"
+      addon_version = "v1.11.4-eksbuild.14"
       configuration_values = jsonencode({
         computeType = "Fargate"
         # Ensure that the we fully utilize the minimum amount of resources that are supplied by
