@@ -54,11 +54,11 @@ module "eks_blueprints_addons" {
     }
 
     vpc-cni    = {
-      addon_version = "v1.18.3-eksbuild.1"
+      #addon_version = "v1.18.3-eksbuild.1"
     }
 
     kube-proxy = {
-      addon_version = "v1.30.0-eksbuild.3"
+      #addon_version = "v1.30.0-eksbuild.3"
     }
     
   }
