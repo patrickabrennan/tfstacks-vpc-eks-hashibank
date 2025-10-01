@@ -75,14 +75,14 @@ deployment "prod" {
 
 #add for GA version
 # GA: gate/approval lives on a deployment_group + auto-approve check
-deployment_group "dev" {
-  auto_approve_checks = [deployment_auto_approve.no_destroy_dev]
-}
+#deployment_group "dev" {
+#  auto_approve_checks = [deployment_auto_approve.no_destroy_dev]
+#}
 
-deployment_auto_approve "no_destroy_dev" {
-  check {
-    condition = context.plan.changes.remove == 0 && context.plan.deployment == deployment.development
-    reason    = "Prevent auto-approval if anything would be destroyed."
-  }
-}
+#deployment_auto_approve "no_destroy_dev" {
+#  check {
+#    condition = context.plan.changes.remove == 0 && context.plan.deployment == deployment.development
+#    reason    = "Prevent auto-approval if anything would be destroyed."
+#  }
+#}
 
