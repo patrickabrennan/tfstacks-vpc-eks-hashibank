@@ -60,10 +60,25 @@ deployment "prod" {
   }
 }
 
-orchestrate "auto_approve" "safe_plans_dev" {
+#comment out as this for Beta version 
+#orchestrate "auto_approve" "safe_plans_dev" {
+#  check {
+#      # Only auto-approve in the development environment if no resources are being removed
+#      condition = context.plan.changes.remove == 0 && context.plan.deployment == deployment.development
+#      reason = "Plan has ${context.plan.changes.remove} resources to be removed."
+#  }
+#}
+
+#add for GA version
+# GA: gate/approval lives on a deployment_group + auto-approve check
+deployment_group "dev" {
+  auto_approve_checks = [deployment_auto_approve.no_destroy_dev]
+}
+
+deployment_auto_approve "no_destroy_dev" {
   check {
-      # Only auto-approve in the development environment if no resources are being removed
-      condition = context.plan.changes.remove == 0 && context.plan.deployment == deployment.development
-      reason = "Plan has ${context.plan.changes.remove} resources to be removed."
+    condition = context.plan.changes.remove == 0 && context.plan.deployment == deployment.development
+    reason    = "Prevent auto-approval if anything would be destroyed."
   }
 }
+
