@@ -32,6 +32,8 @@ deployment "development" {
     namespace = "hashibank"
 
   }
+  # flip this on only when you intend to destroy
+  destroy = true
 }
 
 deployment "prod" {
@@ -58,6 +60,8 @@ deployment "prod" {
     namespace = "hashibank"
 
   }
+  # flip this on only when you intend to destroy
+  destroy = true
 }
 
 #comment out as this for Beta version 
